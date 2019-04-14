@@ -2,8 +2,9 @@
   <ul class="players" v-if="players.length">
     <li v-for="player in players"
         is="Player"
-        v-bind:player="player"
-        v-bind:key="player.id">
+        :player="player"
+        :key="player.id"
+        @click-remove-player="$emit('remove-player', player.id)">
     </li>
   </ul>
 </template>
@@ -19,3 +20,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.players {
+  padding-left: 0;
+}
+</style>

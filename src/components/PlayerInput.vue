@@ -1,6 +1,6 @@
 <template>
-  <form v-on:submit.prevent="onSubmit">
-    <input type="text" v-model="player.name">
+  <form v-on:submit.prevent="onSubmit" class="player-form">
+    <input type="text" v-model="player.name" placeholder="Name &amp; Dex">
     <input type="number" v-model="player.dex">
     <button>Add Player</button>
   </form>
@@ -14,7 +14,7 @@ export default {
       player: {
         name: '',
         dex: 0,
-        initiative: -1,
+        initiative: 10,
       },
     };
   },
@@ -22,7 +22,7 @@ export default {
     onSubmit() {
       this.$emit('add-player', this.player);
       this.player.name = '';
-      this.player.initiative = -1;
+      this.player.initiative = 10;
       this.player.dex = 0;
     },
   },
@@ -33,5 +33,12 @@ export default {
   input[type="number"]
   {
     min-height: 32px;
+    width: 4rem;
+  }
+  .player-form {
+    margin-top: 20px;
+  }
+  input, button {
+    margin: 0 5px 0 5px;
   }
 </style>

@@ -2,8 +2,9 @@
   <ul class="monsters" v-if="monsters.length">
     <li v-for="monster in monsters"
         is="Monster"
-        v-bind:monster="monster"
-        v-bind:key="monster.id">
+        :monster="monster"
+        :key="monster.id"
+        @click-remove-monster="$emit('remove-monster', monster.id)">
     </li>
   </ul>
 </template>
@@ -19,3 +20,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.monsters {
+  padding-left: 0;
+}
+</style>

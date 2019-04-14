@@ -1,6 +1,6 @@
 <template>
-  <form v-on:submit.prevent="onSubmit">
-    <input type="text" v-model="monster.name">
+  <form v-on:submit.prevent="onSubmit" class="monster-form">
+    <input type="text" v-model="monster.name" placeholder="Identifier &amp; Dex">
     <input type="number" v-model="monster.dex">
     <button>Add Monster</button>
   </form>
@@ -31,5 +31,12 @@ export default {
   input[type="number"]
   {
     min-height: 32px;
+    width: 4rem;
+  }
+  .monster-form {
+    margin-top: 20px;
+  }
+  input, button {
+    margin: 0 5px 0 5px;
   }
 </style>
